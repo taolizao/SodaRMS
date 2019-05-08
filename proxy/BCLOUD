@@ -1,0 +1,2 @@
+BUILD_SUBMITTER -x -u . -e CENTOS4U3 -m gmail/bdrp/non-slot-proxy -c "cd gmail/bdrp/non-slot-proxy && sh build.sh"
+BUILD_SUBMITTER_COVERITY -m gmail/bdrp/non-slot-proxy -u ./ -x -c "cd gmail/bdrp/non-slot-proxy && export covpath=\$PWD && mkdir coverity && mkdir output && \$BUILD_KIT_PATH/coverity-7.5.1/cov-analysis-linux64/bin/cov-build --dir coverity sh build.sh && mv \$covpath/coverity \$covpath/output/coverity" -tp \"file(\'/notes/\.*,/scripts/\.*$\')\" delete

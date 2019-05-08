@@ -1,0 +1,51 @@
+topdir=../
+testdir=../../../src
+
+INCDIR=$(topdir)/include
+BINDIR=$(topdir)/bin
+LOGDIR=$(topdir)/log
+
+SRC_SOURCES=${wildcard $(topdir)/src/*.c}
+SRC_OBJS=${patsubst %.c,%.o,$(SRC_SOURCES)}
+SRC_GCNO=${patsubst %.c,%.gcno,$(SRC_SOURCES)}
+SRC_GCDA=${patsubst %.c,%.gcda,$(SRC_SOURCES)}
+SRC_GCOV=${patsubst %.c,%.gcov,$(SRC_SOURCES)}
+
+CASES_SOURCES=${wildcard $(topdir)/testcases/*.c}
+CASES_OBJS=${patsubst %.c,%.o,$(CASES_SOURCES)}
+CASES_GCNO=${patsubst %.c,%.gcno,$(CASES_SOURCES)}
+CASES_GCDA=${patsubst %.c,%.gcda,$(CASES_SOURCES)}
+CASES_GCOV=${patsubst %.c,%.gcov,$(CASES_SOURCES)}
+
+STUB_SOURCES=${wildcard $(topdir)/stub/*.c}
+STUB_OBJS=${patsubst %.c,%.o,$(STUB_SOURCES)}
+STUB_GCNO=${patsubst %.c,%.gcno,$(STUB_SOURCES)}
+STUB_GCDA=${patsubst %.c,%.gcda,$(STUB_SOURCES)}
+STUB_GCOV=${patsubst %.c,%.gcov,$(STUB_SOURCES)}
+
+SETUP_SOURCES=${wildcard $(topdir)/setup/*.c}
+SETUP_OBJS=${patsubst %.c,%.o,$(SETUP_SOURCES)}
+SETUP_GCNO=${patsubst %.c,%.gcno,$(SETUP_SOURCES)}
+SETUP_GCDA=${patsubst %.c,%.gcda,$(SETUP_SOURCES)}
+SETUP_GCOV=${patsubst %.c,%.gcov,$(SETUP_SOURCES)}
+
+NC_SOURCES=${wildcard $(testdir)/*.c}
+NCALL_OBJS=${patsubst %.c,%.o,$(NC_SOURCES)}
+NC_OBJS=${filter-out nc.o,$(NCALL_OBJS)}
+NC_GCNO=${patsubst %.c,%.gcno,$(NC_SOURCES)}
+NC_GCDA=${patsubst %.c,%.gcda,$(NC_SOURCES)}
+NC_GCOV=${patsubst %.c,%.gcov,$(NC_SOURCES)}
+
+PROTO_SOURCES=${wildcard $(testdir)/proto/*.c}
+PROTO_OBJS=${patsubst %.c,%.o,$(PROTO_SOURCES)}
+PROTO_GCNO=${patsubst %.c,%.gcno,$(PROTO_SOURCES)}
+PROTO_GCDA=${patsubst %.c,%.gcda,$(PROTO_SOURCES)}
+PROTO_GCOV=${patsubst %.c,%.gcov,$(PROTO_SOURCES)}
+
+
+OBJECTS=$(SRC_OBJS) $(CASES_OBJS) $(STUB_OBJS) $(SETUP_OBJS) $(NC_OBJS) $(PROTO_OBJS)
+GCNOS=$(SRC_GCNO) $(CASES_GCNO) $(STUB_GCNO) $(SETUP_GCNO) $(NC_GCNO) $(PROTO_GCNO)
+GCDAS=$(SRC_GCDA) $(CASES_GCDA) $(STUB_GCDA) $(SETUP_GCDA) $(NC_GCDA) $(PROTO_GCDA)
+GCOVS=$(SRC_GCOV) $(CASES_GCOV) $(STUB_GCOV) $(SETUP_GCOV) $(NC_GCOV) $(PROTO_GCOV)
+
+
